@@ -1,0 +1,20 @@
+{
+  "name": "booking_system",
+  "version": "1.0.0",
+  "description": " booking flight",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "author": "Ebuka",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "http-status-codes": "^2.3.0",
+    "mysql2": "^3.14.4",
+    "sequelize": "^6.37.7",
+    "sequelize-cli": "^6.6.3",
+    "winston": "^3.17.0"
+  }
+}
