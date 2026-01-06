@@ -12,16 +12,17 @@ app.use("/api", apiRoutes);
 
 app.listen(ServerConfig.PORT, async () => {
   console.log(`Server running on port: ${ServerConfig.PORT}`);
+
   const {City, Airport} = require("./models")
-  const imo = await City.findByPk(19, {include: {model: Airport}})
-  console.log(imo)
-  // const imoPort = await imo.setAir({code: 'IM'})
-  // console.log(imoPort)
 
-  // const imoPort = await imo.getAirports()
-  // console.log(imoPort)
+  // const lagos = await City.create({name: "Lagos"})
+  // console.log(lagos)
 
-  const imoport = await Airport.findByPk(18)
-  console.log(imoport)
-  await imo.removeAirports(imoport)
+  // const airportInLagos = await lagos.createAirport({name: "Bariga Airport", code: "BRG", cityId: "17"})
+  // const airportInLagos = await lagos.getAirports()
+  // console.log(airportInLagos)
+  // const city = await City.destroy({where: {id: 17}})
+  // console.log(city)
+
+  await City.destroy({ where: { id: 25 } });
 });

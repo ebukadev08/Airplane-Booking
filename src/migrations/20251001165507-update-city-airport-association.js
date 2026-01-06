@@ -1,22 +1,25 @@
-'use strict';
+"use strict";
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    await queryInterface.addConstraint('Airports', {
-      type: 'FOREIGN KEY',
-      name: 'city_fkey_contraint',
-      fields: ['cityId'],
+  async up(queryInterface, Sequelize) {
+    await queryInterface.addConstraint("Airports", {
+      type: "FOREIGN KEY",
+      name: "city_fkey_constraint",
+      fields: ["cityId"],
       references: {
-        table: 'cities',
-        field: 'id'
+        table: "Cities",
+        field: "id",
       },
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE'
-    })
+      onDelete: "CASCADE",
+    });
   },
 
-  async down (queryInterface, Sequelize) {
-    await queryInterface.removeConstraint('Airports', 'city_fkey_contraint')
-  }
+  async down(queryInterface, Sequelize) {
+    try {
+      await queryInterface.removeConstraint("Airports", "city_fkey_constraint");
+    } catch (error) {
+      console.warn("Constraint not found, skipping removal");
+    }
+  },
 };
