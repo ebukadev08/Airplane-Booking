@@ -1,12 +1,12 @@
 const express = require("express");
 const { AirportController } = require("../../controllers");
-const { AirportMiddleware } = require("../../middlewares");
+const { AirportMiddlewares } = require("../../middlewares");
 const router = express.Router();
 console.log("Inside airport routes");
 
 router.post(
   "/",
-  AirportMiddleware.validateRequest,
+  AirportMiddlewares.validateRequest,
   AirportController.createAirport
 );
 router.get("/", AirportController.getAirports);

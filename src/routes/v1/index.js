@@ -10,7 +10,6 @@ router.use("/airplane", airplaneRoutes);
 console.log("Inside api routes");
 
 router.use("/airports", airportRoutes)
-console.log("Inside api routes");
 
 router.get("/info", infoController.info);
 router.use("/cities", cityRoutes);
