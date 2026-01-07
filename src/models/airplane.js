@@ -8,6 +8,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+      this.hasMany(models.Flight, {
+        foreignKey: "airplaneId",
+      });
       // define association here
     }
   }
@@ -22,8 +25,8 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         defaultValue: 0,
         validate: {
-          max: 1000
-        }
+          max: 1000,
+        },
       },
     },
     {
